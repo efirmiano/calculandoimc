@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        function calcularImc() {
+            
+        let peso = document.getElementById("peso").value;
+        let altura = document.getElementById("altura").value;
+        parseFloat(peso);
+        parseFloat(altura);
+        let resultado = peso / (altura*altura);
+        
+        document.getElementById("L_resultado").innerHTML = resultado.toFixed(2);
+        if(resultado < 18.5){
+            document.getElementById("L_result").innerHTML = "--Magreza, quando o resultado é menor que 18,5 kg/m2";
+        }else if (resultado >= 18.5 && resultado <= 24.9){
+            document.getElementById("L_result").innerHTML = "--Normal, quando o resultado está entre 18,5 e 24,9 kg/m2";
+        }else if (resultado >= 25 && resultado < 30)
+            document.getElementById("L_result").innerHTML = "--Sobrepeso, quando o resultado está entre 25 e 30 kg/m2";
+        else if (resultado >= 30){
+            document.getElementById("L_result").innerHTML = "--Obesidade, quando o resultado é maior que 30 kg/m2";
+        }else{
+            document.getElementById("L_result").innerHTML = " Erro: Digitar conforme o exemplo: Peso: 92.5 Altura: 1.75";
+            document.getElementById("L_resultado").innerHTML = " Erro: Lembre-se de digitar apenas numeros e quando necessario usar o ponto.";  
+        }
+    }
+        </script>
+</head>
+<body>
+    <main style="height: aut0; width: auto;">
+        <div style="height: 400px;width: 300px; margin-left: 100px;margin-top: 50px;">
+            <p><h1> Calculando o IMC</h1></p><br>
+            <P><Label> Exemplo: Peso: 92.5 Altura: 1.75</P>
+            <P><Label> Digite seu peso: </Label><input id="peso" type="text"></P>
+            <P><Label> Digite sua Altura: <input id="altura" type="text"> </Label></P>
+            <p> Resultado:<Label id="L_resultado"></Label></p>
+            <p> Nivel:<Label id="L_result"></Label></p>
+            <p><input style="margin: 30px;" type="button" onclick=calcularImc() value="Calcular IMC">  </button><br></p>
+        </div>
+        <div></div>
+    </main>
+
+</body>
+</html>
+
